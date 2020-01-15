@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
 cp /evaluator.js /github/workspace
+npm install
 npm install -g react-scripts
 CI=true react-scripts test --json --outputFile=evaluation.json
 node evaluator.js evaluation.json requirements_mapping.json result.json
