@@ -11,6 +11,10 @@ This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/
 
 React Scripts unit tests JSON results in base64 format.
 
+### `pr-number`
+
+Pull Request number that trigger build.
+
 ## Simple usage example
 ```yml
 uses: betrybe/react-scripts-evaluator-action
