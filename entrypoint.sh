@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 # cp /evaluator.js /github/workspace
-git clone https://github.com/$GITHUB_REPOSITORY.git /master
+git clone -b feature/automatic-evaluation https://github.com/$GITHUB_REPOSITORY.git /master
 rm -rf /master/.git
 cp -r /master .
 pwd ls -lah
