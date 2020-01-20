@@ -3,7 +3,7 @@
 # cp /evaluator.js /github/workspace
 git clone -b feature/automatic-evaluation https://github.com/$GITHUB_REPOSITORY.git /master
 rm -rf /master/.git
-cp -r /master .
+cp -r /master/* .
 pwd
 ls -lah
 npm install
