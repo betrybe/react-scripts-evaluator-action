@@ -1,10 +1,14 @@
 #!/bin/sh -l
 
-cp /evaluator.js /github/workspace
+# cp /evaluator.js /github/workspace
+git clone https://github.com/$GITHUB_REPOSITORY.git /master
+rm -rf /master/.git
+cp -r /master .
+pwd ls -lah
 npm install
 npm install -g react-scripts
 CI=true react-scripts test --json --outputFile=evaluation.json
-node evaluator.js evaluation.json requirements_mapping.json result.json
+node /evaluator.js evaluation.json requirements_mapping.json result.json
 
 if [ $? != 0 ]; then
   echo "Execution error"
