@@ -1,12 +1,8 @@
 #!/bin/sh -l
 
-# cp /evaluator.js /github/workspace
-git clone -b feature/automatic-evaluation https://github.com/$GITHUB_REPOSITORY.git /master
-rm -rf /master/.git
-rm $(ls -d -1 /master/src/* | grep -v ".test.")
-cp -r /master/* .
-pwd
-ls -lah
+git clone https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
+rm -rf /project-tests/.git
+cp -r /project-tests/* .
 npm install
 npm install -g react-scripts
 CI=true react-scripts test --json --outputFile=evaluation.json
