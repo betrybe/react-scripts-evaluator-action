@@ -32,7 +32,7 @@ testData.testResults.forEach((result) => {
 
 const evaluations = Object.keys(tests).map((key) => {
   return {
-    requirement_id: mappingUnitTestsToRequirements[describeName],
+    requirement_id: mappingUnitTestsToRequirements[key],
     grade: isRequirementCorrect(tests[key])
   }
 });
