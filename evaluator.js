@@ -24,9 +24,11 @@ const tests = {}
 testData.testResults.forEach((result) => {
   result.assertionResults.forEach((assertion) => {
     const describeName = assertion.ancestorTitles.join(' ');
-    const evals = tests[describeName] || [];
-    evals.push(assertion.status);
-    tests[describeName] = evals;
+    if (mappingUnitTestsToRequirements[describeName]) {
+      const evals = tests[describeName] || [];
+      evals.push(assertion.status);
+      tests[describeName] = evals;
+    }
   });
 });
 

@@ -78,7 +78,23 @@
               "title":"renders without crashing"
            }
         ]
-     }
+     },
+     {
+      "assertionResults":[
+         {
+            "ancestorTitles":[
+               "<MusicLibrary /> component"
+            ],
+            "failureMessages":[
+
+            ],
+            "fullName":"<MusicLibrary /> component renders without crashing",
+            "location":null,
+            "status":"passed",
+            "title":"renders without crashing"
+         }
+      ]
+   }
   ],
   "wasInterrupted":false
 }
