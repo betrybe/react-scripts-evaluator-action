@@ -3,7 +3,7 @@ set -x
 
 TEST_REPOSITORY_BRANCH=${TEST_REPOSITORY_BRANCH:-master}
 
-git clone https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
+git clone --branch $TEST_REPOSITORY_BRANCH https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
