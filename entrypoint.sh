@@ -1,4 +1,7 @@
 #!/bin/sh -l
+set -x
+
+TEST_REPOSITORY_BRANCH=${TEST_REPOSITORY_BRANCH:-master}
 
 git clone https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
 rm -rf /project-tests/.git
