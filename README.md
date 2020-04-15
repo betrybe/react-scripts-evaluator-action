@@ -37,12 +37,29 @@ The project that want to use this action should keep a file called `requirements
 
 ```json
 {
-  "test-name-1": 17,
-  "unit test 2 name": 36,
+  "describe-name-1": 17,
+  "describe-name-2": 36,
 }
 ```
 
-where `"test-name-1"` and `"unit test 2 name"` are the tests' name and `17` and `36` are the requirements identifiers.
+where `"describe-name-1"` and `"describe-name-2"` are the `describe` blocks name and `17` and `36` are the requirements identifiers.
+
+These `describe` blocks should be:
+
+```js
+describe('describe-name-1', () => {
+  it('test1');
+  it('test2');
+});
+
+describe('describe-name-2', () => {
+  it('test1');
+  it('test2');
+  it('test3');
+});
+```
+
+This custom **GitHub Action** will evaluate the describe block.
 
 ## Learn about GitHub Actions
 
