@@ -5,6 +5,14 @@ This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/
 
 ## Inputs
 
+### `repository-test-name`
+
+GitHub repository that store the tests
+
+### `repository-test-branch`
+
+GitHub specific branch
+
 ## Outputs
 
 ### `result`
@@ -15,16 +23,20 @@ React Scripts unit tests JSON results in base64 format.
 
 Pull Request number that trigger build.
 
-## Simple usage example
+## Usage example
+
 ```yml
-uses: betrybe/react-scripts-evaluator-action
+- uses: betrybe/react-scripts-evaluator-action@v3
+  with:
+    repository-test-name: my-org/my-repo
+    repository-test-branch: master # master is default
 ```
 
 ## How to get result output
 ```yml
 - name: React Scripts evaluator
   id: evaluator
-  uses: betrybe/react-scripts-evaluator-action
+  uses: betrybe/react-scripts-evaluator-action@v3
 - name: Next step
   uses: another-github-action
   with:
@@ -33,33 +45,51 @@ uses: betrybe/react-scripts-evaluator-action
 
 ## Project contraints
 
-The project that want to use this action should keep a file called `requirements_mapping.json` in root folder with this structure:
+The project that want to use this action should implement unit tests grouping them using `describe` statements.
+Each `describe` statement will be mapped to a requirement.
 
-```json
+Example:
+
+```javascript
+describe('requirement #1' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #2' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #3' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+```
+
+Project repository must create a file called `requirements.json` inside `.trybe` folder.
+
+This file should have the following structure:
+
+``json
 {
-  "describe-name-1": 17,
-  "describe-name-2": 36,
+  "requirements": [{
+    "description": "requirement #1",
+    "bonus": false
+  }, {
+    "description": "requirement #2",
+    "bonus": true
+  }, {
+    "description": "requirement #3",
+    "bonus": false
+  }]
 }
 ```
 
-where `"describe-name-1"` and `"describe-name-2"` are the `describe` blocks name and `17` and `36` are the requirements identifiers.
-
-These `describe` blocks should be:
-
-```js
-describe('describe-name-1', () => {
-  it('test1');
-  it('test2');
-});
-
-describe('describe-name-2', () => {
-  it('test1');
-  it('test2');
-  it('test3');
-});
-```
-
-This custom **GitHub Action** will evaluate the describe block.
+where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the requirements and describes names.
 
 ## Learn about GitHub Actions
 
