@@ -8,8 +8,9 @@ git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /p
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
-npm install -g react-scripts
-CI=false react-scripts test --watchAll=false --json --outputFile=evaluation.json
+npm test -- --watchAll=false --json --outputFile=evaluation.json
+# npm install -g react-scripts
+# CI=false react-scripts test --watchAll=false --json --outputFile=evaluation.json
 node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
