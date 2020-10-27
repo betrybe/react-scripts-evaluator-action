@@ -9,8 +9,6 @@ rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
 node_modules/.bin/react-scripts test --watchAll=false --json --outputFile=evaluation.json
-# npm install -g react-scripts
-# CI=false react-scripts test --watchAll=false --json --outputFile=evaluation.json
 node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
