@@ -5,38 +5,23 @@ This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/
 
 ## Inputs
 
-### `repository-test-name`
-
-GitHub repository that store the tests
-
-### `repository-test-branch`
-
-GitHub specific branch
-
 ## Outputs
 
 ### `result`
 
 React Scripts unit tests JSON results in base64 format.
 
-### `pr-number`
-
-Pull Request number that trigger build.
-
 ## Usage example
 
 ```yml
-- uses: betrybe/react-scripts-evaluator-action@v3
-  with:
-    repository-test-name: my-org/my-repo
-    repository-test-branch: master # master is default
+- uses: betrybe/react-scripts-evaluator-action@v5
 ```
 
 ## How to get result output
 ```yml
 - name: React Scripts evaluator
   id: evaluator
-  uses: betrybe/react-scripts-evaluator-action@v3
+  uses: betrybe/react-scripts-evaluator-action@v5
 - name: Next step
   uses: another-github-action
   with:
