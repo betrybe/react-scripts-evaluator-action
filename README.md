@@ -5,6 +5,12 @@ This action evaluate Tryber projects with [React Scripts](https://www.npmjs.com/
 
 ## Inputs
 
+- `pr_author_username`
+
+  **Required**
+
+  Pull Request author username.
+
 ## Outputs
 
 ### `result`
