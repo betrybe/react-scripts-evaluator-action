@@ -21,6 +21,8 @@ React Scripts unit tests JSON results in base64 format.
 
 ```yml
 - uses: betrybe/react-scripts-evaluator-action@v5
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
@@ -28,6 +30,8 @@ React Scripts unit tests JSON results in base64 format.
 - name: React Scripts evaluator
   id: evaluator
   uses: betrybe/react-scripts-evaluator-action@v5
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
   uses: another-github-action
   with:
