@@ -85,7 +85,3 @@ This file should have the following structure:
 ```
 
 where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the requirements and describes names.
-
-## Learn about GitHub Actions
-
-- https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
