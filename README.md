@@ -20,18 +20,29 @@ React Scripts unit tests JSON results in base64 format.
 ## Usage example
 
 ```yml
-- uses: betrybe/react-scripts-evaluator-action@v5
+- name: Fetch React Scripts evaluator
+  uses: actions/checkout@v2
+  with:
+    repository: betrybe/react-scripts-evaluator-action
+    ref: v6
+    token: ${{ secrets.GIT_HUB_PAT }}
+    path: .github/actions/react-scripts-evaluator
+
+- name: Run Stryker evaluation
+  id: evaluator
+  uses: ./.github/actions/stryker-evaluator
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
 ```yml
-- name: React Scripts evaluator
+- name: Run React Scripts evaluation
   id: evaluator
-  uses: betrybe/react-scripts-evaluator-action@v5
+  uses: ./.github/actions/react-scripts-evaluator
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
+
 - name: Next step
   uses: another-github-action
   with:
